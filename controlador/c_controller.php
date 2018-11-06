@@ -1,5 +1,6 @@
 <?php 
-	class controller {
+include "c_formulario.php";
+class controller {
 
 	function _vprincipal(){
 	$pagina = file_get_contents('vistas/v_html.php');
@@ -7,5 +8,6 @@
 	$pagina = str_replace('#prueba#',$formulario,$pagina);
 	return $pagina;
 	}
+	
 }
  ?>
