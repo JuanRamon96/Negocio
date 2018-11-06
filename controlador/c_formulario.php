@@ -15,11 +15,11 @@ class formulario{
 				$mail->Port = 465;
 
 				//Nos autenticamos con nuestras credenciales en el servidor de correo Gmail
-				$mail->Username = "webmaster.teve@gmail.com";
-				$mail->Password = "PotYYgrf14";
+				$mail->Username = "contacto@smartpoint.com.mx";
+				$mail->Password = "5Mm01_vkwyv3";
 				 
 				//Agregamos la información que el correo requiere
-				$mail->From = "webmaster.teve@gmail.com";
+				$mail->From = "contacto@smartpoint.com.mx";
 				$mail->FromName = "Administrador";
 				$mail->Subject = "Nueva contrase&ntilde;a de SmartPoint";
 				$link = 'http://confeccioneslizareli.com';
