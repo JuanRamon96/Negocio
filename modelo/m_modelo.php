@@ -1,14 +1,19 @@
 <?php 
 include "config/conexion.php";
 class m_modelo extends conexion{
+	public $db;
 	public $numerofilas;
 	public $error;
-	public function __construct (){
-		parent::__construct();
-	}
+	
+	public function __construct()
+    {
+        $this->db = conexion::__construct();
+    }
+
 	// METODO PARA INSERTAR, MODIFICAR Y ELIMINAR REGISTROS
 	public function _insertar($query){
-		$result = $this->link->query($query);
+		$result = $this->db->query($query);
+		
 		if (!$result){
 			$error = 'si';
 		}else{

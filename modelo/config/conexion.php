@@ -1,21 +1,22 @@
 <?php
 class conexion {
-	private static $dbhost = 'localhost';
-	private static $dbusr = 'root';
-	private static $dbpwd = '';
-	private static $dbname = 'negocio';
-	protected $link;
-    public function __construct() {
-	//}
-	//public function conexionf (){	
-		$this->link = new mysqli(self::$dbhost,self::$dbusr,self::$dbpwd,self::$dbname);
-		if($link->connect_error){
-			echo "Error de conexión: ".$link->connect_errno." $link->connect_error\n";
-			exit;
-		}else{
-			return $this->link;
-			
-		}
-	}
+	private $_connection;
+    private static $_instance; //The single instance
+    private $_host = "localhost";
+    private $_username = "root";
+    private $_password = "";
+    private $_database = "negocio";
+
+    public function __construct()
+    {
+        $this->_connection = new mysqli($this->_host, $this->_username,$this->_password, $this->_database);
+        
+        if(mysqli_connect_error())
+        {
+            trigger_error("Error al conectar con la Base de datos:" . mysql_connect_error(),E_USER_ERROR);
+        }else{
+        	 return $this->_connection;
+        }
+    }
 }
 ?>

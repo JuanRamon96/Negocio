@@ -1,10 +1,11 @@
 <?php 
 require 'contramail/class.phpmailer.php';
 require 'contramail/class.smtp.php';
+require 'modelo/m_modelo.php';
 class formulario{
 
-		private function _enviar($user, $password) {
-	        try {
+	private function _enviar($user, $password) {
+	    try {
 				//Especificamos los datos y configuración del servidor			
 				$mail = new PHPMailer();
 				$mail->IsSMTP();
@@ -31,19 +32,33 @@ class formulario{
 				//Enviamos el correo electrónico
 				$mail->Send();
 	            return "En un momento te llegara un correo con tu contraseña";
-	        }
-			catch (phpmailerException $e) {
-	            echo $e->errorMessage(); //Mensaje de error si se produjera.
-	        }
 	    }
+		catch (phpmailerException $e) {
+	            echo $e->errorMessage(); //Mensaje de error si se produjera.
+	    }
+	}
 	
-	private function _generacontra () {
-		$cadena = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+
+    public function _insertar() {
+    	extract($_POST);
+    	$omodelo = new m_modelo();
+
+    	$cadena = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
 		$newcontra = "";
 		for($i=0;$i<8;$i++) {
-		$newcontra .= substr($cadena,rand(0,62),1);
+			$newcontra .= substr($cadena,rand(0,62),1);
 		}
-			return $newcontra;     
+
+    	$query = "INSERT INTO clientes VALUES (null,'$nombre','$apellidos','$celular','$telefono','$correo','$empresa','$domicilio','$pais','$estado','$ciudad','$cp','$giro','$usuario','$newcontra','$paquete')";
+
+    	$error = $omodelo->_insertar($query);
+		if ($error == "si") {
+			$mensaje = "Error al guaradar negocio"; 
+		}else{
+			$mensaje = "El negocio se ha guaradado";
+		}
+
+		echo $mensaje;
     }
 }
 
