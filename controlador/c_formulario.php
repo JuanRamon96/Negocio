@@ -1,41 +1,39 @@
 <?php 
-require 'contramail/class.phpmailer.php';
-require 'contramail/class.smtp.php';
+require("PHPMailer/PHPMailerAutoload.php");
 require 'modelo/m_modelo.php';
+
+
 class formulario{
 
-	private function _enviar($user, $password) {
-	    try {
-				//Especificamos los datos y configuración del servidor			
-				$mail = new PHPMailer();
-				$mail->IsSMTP();
-				$mail->SMTPAuth = true;
-				$mail->SMTPSecure = "ssl";
-				$mail->Host = "smtp.gmail.com";
-				//$mail->Port = 587;
-				$mail->Port = 465;
+	private function email($destino, $asunto, $mensaje)
+	{
+		$mail = new PHPMailer(true);                              // Passing `true` enables exceptions
+		try {
+		    //Server settings
+		    //$mail->SMTPDebug = 2;                                 // Enable verbose debug output
+		    $mail->isSMTP();                                      // Set mailer to use SMTP
+		    $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+		    $mail->SMTPAuth = true;                               // Enable SMTP authentication
+		    $mail->Username = 'smartpoint.contacto@gmail.com';                 // SMTP username
+		    $mail->Password = 'smartpoint123';                           // SMTP password
+		    $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+		    $mail->Port = 587;                                    // TCP port to connect to
 
-				//Nos autenticamos con nuestras credenciales en el servidor de correo Gmail
-				$mail->Username = "contacto@smartpoint.com.mx";
-				$mail->Password = "5Mm01_vkwyv3";
-				 
-				//Agregamos la información que el correo requiere
-				$mail->From = "contacto@smartpoint.com.mx";
-				$mail->FromName = "Administrador";
-				$mail->Subject = "Nueva contrase&ntilde;a de SmartPoint";
-				$link = 'http://confeccioneslizareli.com';
-				$mail->AltBody = "";
-				$mail->MsgHTML('<p>Tu usuario es: <b>'. $user .'</b></p> <br> <p>Tu nueva contrase&ntilde;a es: <b>'. $password .'</b></p> <br> <p> Inicia sesi&oacute;n en el siguiente link: </p> <a href="'.$link.'">'.$link.'</a>');
-				$mail->AddAddress($user, $user);
-				$mail->IsHTML(true);
-				 
-				//Enviamos el correo electrónico
-				$mail->Send();
-	            return "En un momento te llegara un correo con tu contraseña";
-	    }
-		catch (phpmailerException $e) {
-	            echo $e->errorMessage(); //Mensaje de error si se produjera.
-	    }
+		    //Recipients
+		    $mail->setFrom('smartpoint.contacto@gmail.com', 'Sistema Inteligente de Venta');
+		    $mail->addAddress($destino);     // Add a recipient
+
+		    //Content
+		    $mail->isHTML(true);                                  // Set email format to HTML
+		    $mail->Subject = $asunto;
+		    $mail->Body    = $mensaje;
+		    $mail->AltBody = $mensaje;
+
+		    $mail->send();
+		    //echo 'Message has been sent';
+		} catch (Exception $e) {
+		    //echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+		}
 	}
 	
 
@@ -56,11 +54,10 @@ class formulario{
 			$mensaje = "Error al guaradar negocio"; 
 		}else{
 			$mensaje = "El negocio se ha guaradado";
+			$this->email($correo, "Smartpoint", "<h2>Tu cuenta en Smartpoint ha sido creada</h2><p>Los datos de tu cuenta son los siguientes:</p><br><p>Usuario: $usuario</p><br><p>Contraseña: $newcontra</p>");
 		}
 
 		echo $mensaje;
     }
 }
-
-
  ?>
