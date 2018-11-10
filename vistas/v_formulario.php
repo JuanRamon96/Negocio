@@ -3,16 +3,16 @@
 	<form id="FormGuardarNegocio">
 	<div class="row">
 		<div class="col-lg-6 col-sm-6">
-				<div class="form-group">
-					<label class="control-label">Nombre de gerente*</label>
-						<input id="nombre" type="text" class="form-control" placeholder="Nombre" required>
-				</div>
+			<div class="form-group">
+				<label class="control-label">Nombre de gerente*</label>
+				<input id="nombre" type="text" class="form-control" placeholder="Nombre" required>
+			</div>
 		</div>
 		<div class="col-lg-6 col-sm-6">
-				<div class="form-group">
-					<label class="control-label">Apellidos de gerente*</label>
-					<input id="apellidos" type="text" class="form-control" placeholder="Apellidos" required>
-				</div>
+			<div class="form-group">
+				<label class="control-label">Apellidos de gerente*</label>
+				<input id="apellidos" type="text" class="form-control" placeholder="Apellidos" required>
+			</div>
 		</div>
 	</div>
 	<div class="row">
@@ -34,7 +34,7 @@
 		<div class="col-lg-4 col-sm-12">
 			<div class="form-group">
 				<label class="control-label">Nombre de usuario*</label>
-					<input id="nombreUsuario" type="text" class="form-control"  placeholder="Ej. NombreUsuario123" required>
+				<input id="nombreUsuario" type="text" class="form-control"  placeholder="Ej. NombreUsuario123" required>
 			</div>
 		</div>
 	</div>
@@ -42,34 +42,39 @@
 		<div class="col-lg-4 col-sm-6">
 			<div class="form-group">
 				<label class="control-label">Empresa*</label>
-					<input id="nombreEmpresa" type="text" class="form-control" placeholder="Ej. Empresas S.A de C.V." required>
+				<input id="nombreEmpresa" type="text" class="form-control" placeholder="Ej. Empresas S.A de C.V." required>
 			</div>
 		</div>
 		<div class="col-lg-4 col-sm-6">
 			<div class="form-group">
 				<label class="control-label">Telefono*</label>
-					<input id="telefonoEmpresa" type="tel" class="form-control" placeholder="(XXX) XXXX XXX" required>
+				<input id="telefonoEmpresa" type="tel" class="form-control" placeholder="(XXX) XXXX XXX" required>
 			</div>
 		</div>
 		<div class="col-lg-4 col-sm-12">
 			<div class="form-group">
 				<label class="control-label">Domicilio*</label>
-					<input id="domicilioEmpresa" type="text" class="form-control" placeholder="Ej. Calle Centro #25" required>
+				<input id="domicilioEmpresa" type="text" class="form-control" placeholder="Ej. Calle Centro #25" required>
 			</div>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-lg-3">
-			<label class="control-label">Ciudad*</label>
-			<input id="ciudadCliente" type="text" class="form-control" placeholder="Ej. Guadalajara" required>
+			<label class="control-label">Pais*</label>
+			<select id="paisCliente" class="form-control">
+			</select>
 		</div>
 		<div class="col-lg-3">
 			<label class="control-label">Estado*</label>
-			<input id="estadoCliente" type="text" class="form-control" placeholder="Ej. Jalisco" required>
+			<select id="estadoCliente" class="form-control">
+				<option value="">Selecciona un estado</option>
+			</select>
 		</div>
 		<div class="col-lg-3">
-			<label class="control-label">Pais*</label>
-			<input id="paisCliente" type="text" class="form-control" placeholder="Ej. México" required>
+			<label class="control-label">Ciudad*</label>
+			<select id="ciudadCliente" class="form-control">
+				<option value="">Selecciona una ciudad</option>
+			</select>
 		</div>
 		<div class="col-lg-3">
 			<label class="control-label">Codigo Postal*</label>
@@ -101,11 +106,10 @@
 				<option value="Plus">Plus</option>
 			</select>
 		</div>
-		<div class="col-md-12">
-			<br>
+		<div class="col-lg-4 col-sm-12">
 			<div class="form-group">
-				<label id="sCaptcha" class="col-md-6"></label>
-				<input id="captcha" type="text" class="form-control"  required>
+				<label id="sCaptcha" class="control-label"></label>
+				<input name="captcha" id="captcha" type="text" class="form-control" required>
 			</div>
 		</div>
 	</div>

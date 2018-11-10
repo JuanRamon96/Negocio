@@ -53,11 +53,87 @@ class formulario{
 		if ($error == "si") {
 			$mensaje = "Error al guaradar negocio"; 
 		}else{
-			$mensaje = "El negocio se ha guaradado";
+			$mensaje = "El negocio se ha guardado";
 			$this->email($correo, "Smartpoint", "<h2>Tu cuenta en Smartpoint ha sido creada</h2><p>Los datos de tu cuenta son los siguientes:</p><br><p>Usuario: $usuario</p><br><p>Contraseña: $newcontra</p>");
 		}
 
 		echo $mensaje;
+    }
+
+}
+
+class Paises{
+
+	public function _consultar() {
+    	extract($_POST);
+    	$omodelo = new m_modelo();
+
+    	$query = "SELECT * FROM countries";
+
+    	$row = $omodelo->_consultar($query);
+		$filas = $omodelo->numerofilas;
+		if ($row == "si") {
+			$mensaje = "Error al Consultar pais"; 
+		}else{
+			echo "<option value='' selected disabled>Seleccione un País</option>";
+			for ($i=0; $i < $filas ; $i++) { 
+				 $mensaje = "<option value='".$row[$i]["id"]."'>".$row[$i]["name"]."</option>";
+				 echo $mensaje;
+			}
+			
+		}
+
+		
+    }
+}
+
+class SeleccionarEstado{
+
+	public function _consultar() {
+    	extract($_POST);
+    	$omodelo = new m_modelo();
+
+    	$query = "SELECT * FROM states WHERE country_id = $id";
+
+    	$row = $omodelo->_consultar($query);
+		$filas = $omodelo->numerofilas;
+		if ($row == "si") {
+			$mensaje = "Error al Consultar Estado"; 
+		}else{
+			echo "<option value='' selected disabled>Seleccione un estado</option>";
+			for ($i=0; $i < $filas ; $i++) { 
+				 $mensaje = "<option value='".$row[$i]["id"]."'>".$row[$i]["name"]."</option>";
+				 echo $mensaje;
+			}
+			
+		}
+
+		
+    }
+}
+
+class SeleccionarCiudad{
+
+	public function _consultar() {
+    	extract($_POST);
+    	$omodelo = new m_modelo();
+
+    	$query = "SELECT * FROM cities WHERE state_id = $id";
+
+    	$row = $omodelo->_consultar($query);
+		$filas = $omodelo->numerofilas;
+		if ($row == "si") {
+			$mensaje = "Error al Consultar Estado"; 
+		}else{
+			echo"<option value='' selected disabled>Seleccione una ciudad</option>";
+			for ($i=0; $i < $filas ; $i++) { 
+				 $mensaje = "<option value='".$row[$i]["id"]."'>".$row[$i]["name"]."</option>";
+				 echo $mensaje;
+			}
+			
+		}
+
+		
     }
 }
  ?>

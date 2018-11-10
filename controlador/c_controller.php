@@ -14,6 +14,11 @@ class controller {
 		$objeto = new $metodo();
 		$objeto->_insertar();
 	}
+
+	function _consultar($metodo){
+		$objeto = new $metodo();
+		$objeto->_consultar();
+	}
 	
 }
  ?>
