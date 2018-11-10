@@ -6,6 +6,7 @@
  	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 	<title>Formulario</title>
 	<link rel="stylesheet" href="assets/Bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/css.css">
 </head>
 <body>
 	#prueba#
