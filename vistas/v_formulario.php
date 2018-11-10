@@ -60,16 +60,19 @@
 	</div>
 	<div class="row">
 		<div class="col-lg-3">
-			<label class="control-label">Ciudad*</label>
-			<input name="ciudadCliente" id="ciudadCliente" type="text" class="form-control" parsley-required="true" parsley-trigger="change" placeholder="Ej. Guadalajara" required>
+			<label class="control-label">Pais*</label>
+			<select id="paisCliente" class="form-control">
+			</select>
 		</div>
 		<div class="col-lg-3">
 			<label class="control-label">Estado*</label>
-			<input name="estadoCliente" id="estadoCliente" type="text" class="form-control" parsley-required="true" parsley-trigger="change" placeholder="Ej. Jalisco" required>
+			<select id="estadoCliente" class="form-control">
+			</select>
 		</div>
 		<div class="col-lg-3">
-			<label class="control-label">Pais*</label>
-			<input name="paisCliente" id="paisCliente" type="text" class="form-control" parsley-required="true" parsley-trigger="change" placeholder="Ej. México" required>
+			<label class="control-label">Ciudad*</label>
+			<select id="ciudadCliente" class="form-control">
+			</select>
 		</div>
 		<div class="col-lg-3">
 			<label class="control-label">Codigo Postal*</label>
@@ -101,10 +104,9 @@
 				<option value="Plus">Plus</option>
 			</select>
 		</div>
-		<div class="col-md-12">
-			<br>
+		<div class="col-lg-4 col-sm-12">
 			<div class="form-group">
-				<label id="sCaptcha" class="col-md-6"></label>
+				<label id="sCaptcha" class="control-label"></label>
 				<input name="captcha" id="captcha" type="text" class="form-control" parsley-required="true" parsley-trigger="change" required>
 			</div>
 		</div>

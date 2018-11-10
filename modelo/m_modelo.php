@@ -24,7 +24,7 @@ class m_modelo extends conexion{
 	
 	// METODO PARA OBTENER RESULTADOS DE LA BD
 	public function _consultar($query){
-		$result = $this->link->query($query);
+		$result = $this->db->query($query);
 		$this->numerofilas = $result->num_rows;
 		if (!$result) {			
 			$this->error = 'si';
