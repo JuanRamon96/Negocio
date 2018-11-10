@@ -125,7 +125,6 @@ class SeleccionarCiudad{
 		if ($row == "si") {
 			$mensaje = "Error al Consultar Estado"; 
 		}else{
-			echo"<option value='' selected disabled>Seleccione una ciudad</option>";
 			for ($i=0; $i < $filas ; $i++) { 
 				 $mensaje = "<option value='".$row[$i]["id"]."'>".$row[$i]["name"]."</option>";
 				 echo $mensaje;
