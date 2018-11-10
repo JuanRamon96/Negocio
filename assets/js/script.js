@@ -15,6 +15,7 @@ $(document).ready(function() {
 			})
 			.done(function(res) {
 				alert(res);
+				document.getElementById("FormGuardarNegocio").reset();
 			})
 			.fail(function() {
 				console.log("Error");
@@ -22,6 +23,7 @@ $(document).ready(function() {
 		}else{
 			alert("El captcha es incorrecto");
 			CAPTCHA();
+			$("#captcha").val("");
 		}
 	});
 	
