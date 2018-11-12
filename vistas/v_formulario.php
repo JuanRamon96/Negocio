@@ -83,7 +83,7 @@
 		</div>
 		<br>
 		<div class="row">
-			<div class="col-lg-4 col-sm-6">
+			<div class="col-lg-6 col-sm-6">
 				<label class="control-label">Giro</label>
 				<select name="giroEmpresa" id="giroEmpresa" class="form-control" required>
 					<option value="" disabled selected>Seleccione una opción</option>
@@ -97,7 +97,7 @@
 					<option value="otro">Otro</option>
 				</select>
 			</div>
-			<div class="col-lg-4 col-sm-6">
+			<div class="col-lg-6 col-sm-6">
 				<label class="control-label">Paquete</label>
 				<select name="paquete" id="paquete" class="form-control" required>
 					<option value="" disabled selected>Seleccione una opción</option>
@@ -106,11 +106,20 @@
 					<option value="Plus">Plus</option>
 				</select>
 			</div>
-			<div class="col-lg-4 col-sm-12">
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-lg-8 col-sm-12">
 				<div class="form-group">
-					<label id="sCaptcha" class="control-label"></label>
-					<input name="captcha" id="captcha" type="text" class="form-control" parsley-required="true" parsley-trigger="change" required>
+					<label class="control-label">Captcha</label>
+					<div class="cuadroCaptcha">
+						<label id="sCaptcha" class="control-label"></label>
+					</div>
 				</div>
+			</div>
+			<div class="col-lg-4 col-sm-12">
+					<label class="control-label">Ingrese el resultado</label>
+					<input name="captcha" id="captcha" type="text" class="form-control" parsley-required="true" parsley-trigger="change" required>
 			</div>
 		</div>
 		<div class="row">

@@ -85,7 +85,7 @@ $(document).ready(function() {
 		var numero1 = Math.round(Math.random() * (10 - 1) + 1);
 		var numero2 = Math.round(Math.random() * (10 - 1) + 1);
 		suma=numero1+numero2;
-		$("#sCaptcha").html("Cual es el resultado de: "+numero1+" + "+numero2+" = ");
+		$("#sCaptcha").html(numero1+" + "+numero2);
 	}
 	// FINALIZA FUNCION DEL CAPTCHA
 });
