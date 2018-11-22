@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-11-2018 a las 05:49:10
--- Versión del servidor: 10.1.31-MariaDB
--- Versión de PHP: 7.2.4
+-- Tiempo de generación: 22-11-2018 a las 04:11:09
+-- Versión del servidor: 10.1.25-MariaDB
+-- Versión de PHP: 5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -48024,19 +48024,8 @@ CREATE TABLE `clientes` (
   `Ciudad` varchar(100) NOT NULL,
   `CodigoPostal` int(11) NOT NULL,
   `Giro` varchar(60) NOT NULL,
-  `Usuario` varchar(20) NOT NULL,
-  `Contrasena` varchar(20) NOT NULL,
   `Paquete` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `clientes`
---
-
-INSERT INTO `clientes` (`ID_Cliente`, `Nombre`, `Apellidos`, `Tel_Cel`, `Telefono`, `Correo`, `Empresa`, `Domicilio`, `Pais`, `Estado`, `Ciudad`, `CodigoPostal`, `Giro`, `Usuario`, `Contrasena`, `Paquete`) VALUES
-(1, 'Vestido 1Âº comuniÃ³n1', 'wqqwqwqw', '3481295730', '3481295730', 'conprueba@gmail.com', 'NOMBRCLIN12321', 'Avenida del valle #790', 'MÃ©xico', 'Jalisco', 'Tepatitlan', 47195, 'farmacia', 'qwwq', 'uRjHz7xn', 'Freemium'),
-(2, 'qwwq', 'wqqwqwqw', '3481295730', '3481295730', 'lalobecerra7@gmail.com', 'NOMBRCLIN12321', 'Avenida del valle #790', 'MÃ©xico', 'Jalisco', 'Tepatitlan', 47195, 'ferreterias', 'qwwq', 'Q9QdIHcf', 'Premium'),
-(3, 'qwwq', 'wqqwqwqw', '3481295730', '3481295730', 'conprueba@gmail.com', 'NOMBRCLIN12321', 'Avenida del valle #790', 'Mayotte', 'Pamanzi', 'Dzaoudzi', 47195, 'farmacia', 'qwwq', 'Oh3JC6e', 'Premium');
 
 -- --------------------------------------------------------
 
@@ -52427,7 +52416,9 @@ ALTER TABLE `cities`
 -- Indices de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  ADD PRIMARY KEY (`ID_Cliente`);
+  ADD PRIMARY KEY (`ID_Cliente`),
+  ADD UNIQUE KEY `Empresa` (`Empresa`),
+  ADD UNIQUE KEY `Correo` (`Correo`);
 
 --
 -- Indices de la tabla `countries`
@@ -52451,25 +52442,21 @@ ALTER TABLE `states`
 --
 ALTER TABLE `cities`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48357;
-
 --
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `ID_Cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+  MODIFY `ID_Cliente` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `countries`
 --
 ALTER TABLE `countries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=249;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=247;
 --
 -- AUTO_INCREMENT de la tabla `states`
 --
 ALTER TABLE `states`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4122;
-
 --
 -- Restricciones para tablas volcadas
 --

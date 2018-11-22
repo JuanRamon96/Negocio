@@ -47,14 +47,22 @@ class formulario{
 			$newcontra .= substr($cadena,rand(0,62),1);
 		}
 
-    	$query = "INSERT INTO clientes VALUES (null,'$nombre','$apellidos','$celular','$telefono','$correo','$empresa','$domicilio','$pais','$estado','$ciudad','$cp','$giro','$usuario','$newcontra','$paquete')";
+    	$query = "INSERT INTO clientes VALUES (null,'$nombre','$apellidos','$celular','$telefono','$correo','$empresa','$domicilio','$pais','$estado','$ciudad','$cp','$giro','$paquete')";
 
-    	$error = $omodelo->_insertar($query);
+    	$error = $omodelo->_crear($query);
 		if ($error == "si") {
 			$mensaje = "Error al guaradar negocio"; 
 		}else{
-			$mensaje = "El negocio se ha guardado";
-			$this->email($correo, "Smartpoint", "<h2>Tu cuenta en Smartpoint ha sido creada</h2><p>Los datos de tu cuenta son los siguientes:</p><br><p>Usuario: $usuario</p><br><p>Contraseña: $newcontra</p>");
+			$query1 = "INSERT INTO usuarios (id_usuario, nombre, usuario, contrasena, estatus, permisos) VALUES (null, '$nombre $apellidos', '$correo', MD5('$newcontra'), 'Desbloqueado', '1,1,1,1;1,1,1,1;1,1,1,1;1,1,1,1;1,1,1,1;1,1,1,1;1,1,1,1;')";
+
+	    	$error1 = $omodelo->_insertar($query1);
+			if ($error1 == "si") {
+				$mensaje = "Error al guaradar el usuario"; 
+			}else{
+				$mensaje = "El negocio se ha guardado";
+				$this->email($correo, "Smartpoint", "<h2>Tu cuenta en Smartpoint ha sido creada</h2><p>Los datos de tu cuenta son los siguientes:</p><br><p>Usuario: $correo</p><br><p>Contraseña: $newcontra</p>");
+				
+			}
 		}
 
 		echo $mensaje;
@@ -125,6 +133,7 @@ class SeleccionarCiudad{
 		if ($row == "si") {
 			$mensaje = "Error al Consultar Estado"; 
 		}else{
+			echo "<option value='' selected disabled>Seleccione una ciudad</option>";
 			for ($i=0; $i < $filas ; $i++) { 
 				 $mensaje = "<option value='".$row[$i]["id"]."'>".$row[$i]["name"]."</option>";
 				 echo $mensaje;
