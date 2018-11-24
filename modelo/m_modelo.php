@@ -41,7 +41,7 @@ class m_modelo extends conexion{
 		$result = $this->db->query($query);
 		
 		if (!$result){
-			$error = 'si';
+			$error = 'Error: '.mysqli_error($this->db);
 		}else{
 			$numero = mysqli_insert_id($this->db);
 

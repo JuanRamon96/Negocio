@@ -50,8 +50,8 @@ class formulario{
     	$query = "INSERT INTO clientes VALUES (null,'$nombre','$apellidos','$celular','$telefono','$correo','$empresa','$domicilio','$pais','$estado','$ciudad','$cp','$giro','$paquete')";
 
     	$error = $omodelo->_crear($query);
-		if ($error == "si") {
-			$mensaje = "Error al guaradar negocio"; 
+		if ($error != "no") {
+			$mensaje = "Error al guaradar negocio: $error"; 
 		}else{
 			$query1 = "INSERT INTO usuarios (id_usuario, nombre, usuario, contrasena, estatus, permisos) VALUES (null, '$nombre $apellidos', '$correo', MD5('$newcontra'), 'Desbloqueado', '1,1,1,1;1,1,1,1;1,1,1,1;1,1,1,1;1,1,1,1;1,1,1,1;1,1,1,1;')";
 
