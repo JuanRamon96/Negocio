@@ -80,30 +80,6 @@ class m_modelo extends conexion{
 			  `usuario` int(11) NOT NULL
 			) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;");
 
-			$this->db->query("CREATE TABLE `clientes` (
-			  `id_cliente` int(11) NOT NULL COMMENT 'Clave única de registro de cada cliente',
-			  `folio` varchar(200) CHARACTER SET latin1 NOT NULL,
-			  `nombre` varchar(150) CHARACTER SET latin1 NOT NULL COMMENT 'Nombre completo del cliente',
-			  `direccion` varchar(200) CHARACTER SET latin1 NOT NULL COMMENT 'Domicilio donde vive el cliente',
-			  `telefono` varchar(200) CHARACTER SET latin1 NOT NULL COMMENT 'Teléfono de localización del cliente',
-			  `celular` varchar(200) CHARACTER SET latin1 NOT NULL,
-			  `ciudad` varchar(100) CHARACTER SET latin1 NOT NULL COMMENT 'Ciudad donde vive el cliente',
-			  `colonia` varchar(150) CHARACTER SET latin1 NOT NULL,
-			  `codigo_postal` varchar(20) CHARACTER SET latin1 NOT NULL,
-			  `descuento` double NOT NULL COMMENT 'Descuento que le aplica a cada cliente en sus compras',
-			  `lim_credito` double NOT NULL COMMENT 'Limite de la linea de crédito del cliente',
-			  `correo` varchar(100) CHARACTER SET latin1 NOT NULL COMMENT 'Correo electrónico de localización del cliente',
-			  `fecha_nacimiento` date NOT NULL COMMENT 'Fecha de nacimiento del cliente',
-			  `sexo` varchar(10) CHARACTER SET latin1 NOT NULL COMMENT 'Sexo del cliente',
-			  `fecha_alta` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Fecha de registro del cliente',
-			  `foto` varchar(300) CHARACTER SET latin1 NOT NULL,
-			  `rfc` varchar(50) CHARACTER SET latin1 NOT NULL,
-			  `empresa` varchar(200) CHARACTER SET latin1 NOT NULL,
-			  `no_cuenta` varchar(30) CHARACTER SET latin1 NOT NULL,
-			  `banco` varchar(60) CHARACTER SET latin1 NOT NULL,
-			  `usuario` int(11) NOT NULL
-			) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;");
-
 			$this->db->query("CREATE TABLE `compras` (
 			  `id_compra` int(11) NOT NULL COMMENT 'Clave única de registro de la compra',
 			  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Fecha y hora de la compra',
