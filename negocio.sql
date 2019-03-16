@@ -1,10 +1,10 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 22-11-2018 a las 04:11:09
--- Versión del servidor: 10.1.25-MariaDB
+-- Servidor: 127.0.0.1:3306
+-- Tiempo de generación: 16-03-2019 a las 03:26:33
+-- Versión del servidor: 5.7.19
 -- Versión de PHP: 5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -28,11 +28,13 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `cities`
 --
 
-CREATE TABLE `cities` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `cities`;
+CREATE TABLE IF NOT EXISTS `cities` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL,
-  `state_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `state_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=48357 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `cities`
@@ -48010,8 +48012,9 @@ INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 -- Estructura de tabla para la tabla `clientes`
 --
 
-CREATE TABLE `clientes` (
-  `ID_Cliente` int(11) NOT NULL,
+DROP TABLE IF EXISTS `clientes`;
+CREATE TABLE IF NOT EXISTS `clientes` (
+  `ID_Cliente` int(11) NOT NULL AUTO_INCREMENT,
   `Nombre` varchar(60) NOT NULL,
   `Apellidos` varchar(100) NOT NULL,
   `Tel_Cel` varchar(100) NOT NULL,
@@ -48024,8 +48027,20 @@ CREATE TABLE `clientes` (
   `Ciudad` varchar(100) NOT NULL,
   `CodigoPostal` int(11) NOT NULL,
   `Giro` varchar(60) NOT NULL,
-  `Paquete` varchar(60) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Paquete` varchar(60) NOT NULL,
+  PRIMARY KEY (`ID_Cliente`),
+  UNIQUE KEY `Empresa` (`Empresa`),
+  UNIQUE KEY `Correo` (`Correo`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`ID_Cliente`, `Nombre`, `Apellidos`, `Tel_Cel`, `Telefono`, `Correo`, `Empresa`, `Domicilio`, `Pais`, `Estado`, `Ciudad`, `CodigoPostal`, `Giro`, `Paquete`) VALUES
+(1, 'Luis', 'Ramos', '34810809226', '34810809226', 'ing.luis.ra@gmail.com', 'SmartPoint.com.mx', 'AVENIDA JUÃREZ NO. 976, CENTRO', 'Mexico', 'Jalisco', 'Arandas', 47180, 'ferreterias', 'Plus'),
+(2, 'UNIVERSIDAD', 'DE GUADALAJARA', '34810809226', '34810809226', 'iasdsadasra@gmail.com', 'UGU250907eeMH5', 'AVENIDA JUÃREZ NO. 976, CENTRO', 'Mexico', 'Jalisco', 'Acatic', 47180, 'abarrotes', 'Plus'),
+(3, 'Carlos', 'Conchas Beltran', '34810809226', '34810809226', 'ingluis.ra@gmail.com', 'Woodson', 'Francisco Mora #64', 'Mexico', 'Jalisco', 'Arandas', 47180, 'boutique', 'Freemium');
 
 -- --------------------------------------------------------
 
@@ -48033,12 +48048,14 @@ CREATE TABLE `clientes` (
 -- Estructura de tabla para la tabla `countries`
 --
 
-CREATE TABLE `countries` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `countries`;
+CREATE TABLE IF NOT EXISTS `countries` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `sortname` varchar(3) NOT NULL,
   `name` varchar(150) NOT NULL,
-  `phonecode` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `phonecode` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=247 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `countries`
@@ -48298,11 +48315,14 @@ INSERT INTO `countries` (`id`, `sortname`, `name`, `phonecode`) VALUES
 -- Estructura de tabla para la tabla `states`
 --
 
-CREATE TABLE `states` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `states`;
+CREATE TABLE IF NOT EXISTS `states` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL,
-  `country_id` int(11) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `country_id` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `country_id` (`country_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4122 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `states`
@@ -52402,61 +52422,6 @@ INSERT INTO `states` (`id`, `name`, `country_id`) VALUES
 (4120, 'Midlands', 246),
 (4121, 'Lienchiang County', 214);
 
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `cities`
---
-ALTER TABLE `cities`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `clientes`
---
-ALTER TABLE `clientes`
-  ADD PRIMARY KEY (`ID_Cliente`),
-  ADD UNIQUE KEY `Empresa` (`Empresa`),
-  ADD UNIQUE KEY `Correo` (`Correo`);
-
---
--- Indices de la tabla `countries`
---
-ALTER TABLE `countries`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `states`
---
-ALTER TABLE `states`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `country_id` (`country_id`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `cities`
---
-ALTER TABLE `cities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48357;
---
--- AUTO_INCREMENT de la tabla `clientes`
---
-ALTER TABLE `clientes`
-  MODIFY `ID_Cliente` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `countries`
---
-ALTER TABLE `countries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=247;
---
--- AUTO_INCREMENT de la tabla `states`
---
-ALTER TABLE `states`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4122;
 --
 -- Restricciones para tablas volcadas
 --

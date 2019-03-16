@@ -1,44 +1,263 @@
-body {
-    background-image: url("../img/fondo.jpg");
-    min-height: 200px; 
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: 1%
-}
-.fondoForm{
-   border-radius: 10px;
-   margin-top: 2%;
-   background-color:rgba(255,255,255, 0.9);
-   padding: 3%;
+.formAgregar{
+	width:100%;
 }
 
-.titulo{
-	padding: 1%;
-	text-align: center;
-	width: 100%;
-	font-size: 5vw;
-	color: white;
+.oculto{
+	display:none;
 }
-strong{
-	 text-shadow: 2px 2px #CCCCC1;
+
+.even{
+	background: rgba(238, 238, 238, 0.14);
 }
-.cuadroCaptcha{ 
-  border: 2px;
-  font-size: 30px;
-  color: #ccc;
-  font-weight: bold;
-  padding: .7%;
+
+.panel-heading h2{
+	font-size:3.6vw;
+}
+
+.ventaNuevo{
+	margin-top: 5px;
+}
+
+.redonda-lista{
+	display: inline;
+}
+
+.breadcrumb{
+	margin-bottom: 0px;
+}
+
+.dataTables_length label{
+	float: left;
+    width: 10%;
+    display: inline-block;
+    margin-right: 60px;
+}
+
+.DTBotones{
+	display: inline;
+    padding-top: 17px;
+}
+
+.dataTables_filter {
+	width: 61%;
+    display: inline-block;
+    padding-top: 17px;
+}
+
+.ColVis_Button{
+    z-index: 1;
+}
+
+.nopaddingnoborder{
+	padding: 0;
+    border: 0;
+}
+
+div.dt-buttons{
+	float: right;
+}
+
+.dataTables_scroll #tablaUsuarios td{
+	border-right: 1px solid #E5DDDD;
+}
+
+.dataTables_scroll #tablaUsuarios th{
+	border-right: 1px solid #E5DDDD;
+}
+
+/*#tablaUsuarios_filter{
+	border-radius: 8px;
+}
+
+#tablaUsuarios_filter label{
+	font-size: 18px;
+	color: #FAFAFA;
+}
+
+#tablaUsuarios_filter label input{
+	border: 1px solid #CCC;
+	border-radius: 5px;
+	font-size: 14px;
+	padding: 4px;
+	width: auto;
+	font-weight: normal;
+	margin-left: 5px;
+	color: #000;
+	display: inline;
+}*/
+
+div.container {
+    width: 80%;
+}
+
+.tablaProv{
+	border: 2px solid #999999;
+	display:none;
+	position:fixed;
+	box-shadow: 0px 0px 200px #888888;
+	margin-top:-10%;
+	margin-left: -30%;
+	z-index:10;
+}
+.PermisUsu {
   text-align: center;
-  height: 50px;
-  width: 100%;
-    background-image: url("../img/fondocaptcha.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -ms-user-select:none;
+  font-size: 16px;
 }
+
+.redonda-lista a:hover {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.redonda-lista a {
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  width: 30px;
+}
+
+.estatLote{
+	width: 220px;
+    height: 70px;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+/*.modal-body{
+	background-color: #E5E9EC;
+}*/
+
+div.dt-button-background{
+	display: none;
+	z-index: -1;
+}
+.dt-button-background{
+	display: none;
+	z-index: -1;
+}
+.botonColvis {
+	position: relative;
+	margin-right: 3px;
+	padding: 5px 8px;
+	cursor: pointer;
+	*cursor: hand;
+	font-size: 0.88em;
+	color: white;
+	white-space: nowrap;
+	
+	-webkit-border-radius: 2px;
+	   -moz-border-radius: 2px;
+	    -ms-border-radius: 2px;
+	     -o-border-radius: 2px;
+	        border-radius: 2px;
+
+	/*-webkit-box-shadow: 1px 1px 3px #ccc;
+	   -moz-box-shadow: 1px 1px 3px #ccc;
+	    -ms-box-shadow: 1px 1px 3px #ccc;
+	     -o-box-shadow: 1px 1px 3px #ccc;
+	        box-shadow: 1px 1px 3px #ccc;*/
+
+	  background: rgb(98, 112, 125);
+	  border: 1px solid rgba(221, 221, 221, 1);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f9f9f9',GradientType=0 ); /* IE6-9 */
+}
+
+/*::::::::::::::::::::::::CLASES DE COLVIS (VISOR DE COLUMNAS)::::::::::::::::::::::::::::::::::::::*/
+.active{
+	-moz-box-shadow:    inset 0 0 10px #000000 !important;
+   -webkit-box-shadow: inset 0 0 10px #000000 !important;
+   box-shadow:         inset 0 0 10px #000000 !important;
+}
+div.dt-button-collection{
+	list-style: none;
+    width: 150px;
+    padding: 8px 8px 4px 8px;
+    margin: 0;
+    border: 1px solid #ccc;
+    border: 1px solid rgba( 0, 0, 0, 0.4 );
+    background-color: #f3f3f3;
+    background-color: rgba( 255, 255, 255, 0.3 );
+    overflow: hidden;
+    z-index: 2002;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    -ms-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    -o-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+}
+div.dt-button-collection button.downButton{
+	width: 100%;
+	color: white;
+	position: relative;
+    float: left;
+    margin-right: 3px;
+    padding: 5px 8px;
+    cursor: pointer;
+    cursor: hand;
+    font-size: 0.88em;
+    /* color: white; */
+    white-space: nowrap;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+    background: rgb(98, 112, 125);
+    border: 1px solid rgba(221, 221, 221, 1);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f9f9f9',GradientType=0 );
+}
+div.dt-button-collection button.downButton:hover{
+	color: white;
+	border: 1px solid #666;
+    text-decoration: none !important;
+    -webkit-box-shadow: 1px 1px 3px #999;
+    -moz-box-shadow: 1px 1px 3px #999;
+    -ms-box-shadow: 1px 1px 3px #999;
+    -o-box-shadow: 1px 1px 3px #999;
+    box-shadow: 1px 1px 3px #999;
+    background: #505c66;
+}
+
+
+@media only screen and (max-width: 767px) {
+    .tablaProv{
+		margin-left: -90%;
+	}
+
+    #bHora{
+        display: none;
+    }
+
+    .ncolum{
+        z-index: 100;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #bHora{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .Foto {
+        margin-left: -23px !important;
+    }
+}
+@media only screen and (min-width: 410px) and (max-width: 767px) {
+    .mediaPermisosTitulos {
+       margin-top: 0% !important;
+    }
+}
+#tablaUsuarios_wrapper div:nth-child(2) .col-sm-12{
+    overflow-x: scroll;
+} 
+
