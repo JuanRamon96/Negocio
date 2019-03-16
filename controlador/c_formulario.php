@@ -2,7 +2,6 @@
 require("PHPMailer/PHPMailerAutoload.php");
 require 'modelo/m_modelo.php';
 
-
 class formulario{
 
 	private function email($destino, $asunto, $mensaje)

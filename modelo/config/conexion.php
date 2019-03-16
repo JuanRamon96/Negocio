@@ -3,9 +3,9 @@ class conexion {
 	private $_connection;
     private static $_instance; //The single instance
     private $_host = "localhost";
-    private $_username = "root";
-    private $_password = "";
-    private $_database = "negocio";
+    private $_username = "hysguhzi_negocio";
+    private $_password = "iUyhM89YtR";
+    private $_database = "hysguhzi_negocio";
 
     public function __construct()
     {
